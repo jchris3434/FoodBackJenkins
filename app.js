@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'test') {
   sequelize.sync().then(() => {
     console.log('Les tables ont bien été mises à jour');
   }).catch(err => {
-    console.error('Erreur lors de la synchronisation des tables:', err);
+    console.error('Erreur lors de la synchro des tables:', err);
   });
 }
 

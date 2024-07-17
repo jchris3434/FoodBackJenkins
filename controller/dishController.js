@@ -6,7 +6,7 @@ const createDish = async (req, res) => {
   try {
     const restaurant = await Restaurant.findByPk(Restaurant_id);
     if (!restaurant) {
-      return res.status(404).json({ message: 'Restaurant not found' });
+      return res.status(404).json({ message: 'resto not found' });
     }
 
     const newDish = await Dish.create({
@@ -44,6 +44,20 @@ const getDishById = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+// const getDishById = async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const dish = await sequelize.query(`SELECT * FROM dishes WHERE Dish_id = ${id}`);
+//     if (!dish) {
+//       return res.status(404).json({ message: 'Dish not found' });
+//     }
+//     res.json(dish);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// };
+
 
 const updateDish = async (req, res) => {
   const { id } = req.params;
